@@ -1,0 +1,21 @@
+{
+  "prefix": "B!",
+  "activity": [
+    {
+      "listen": "/help"
+    },
+    {
+      "watch": "@@players@@ players"
+    }
+  ],
+  "bot_access_user": [
+    591244865543864329
+  ],
+  "embed_color": "0x1f2eff",
+      "aliases": {
+        "help": [
+            "h"
+        ]
+    },
+  "version": "v1.0.0"
+}

@@ -1,0 +1,21 @@
+{
+    "unknownException": "⚠️ Something went wrong while executing the command! Please try again later or join our Discord server for further assistance.",
+    "enabled": "enabled",
+    "disabled": "disabled",
+
+    "nodeReconnect": "Try again! After reconnecting the node.",
+    "noChannel": "No voice channel to connect to. Provide one or join an existing one.",
+    "noPermission": "Sorry! I don't have permissions to join or speak in your voice channel.",
+    "languageNotFound": "Language pack not found! Choose an existing language pack.",
+    "changedLanguage": "Successfully changed to the language pack `{0}`.",
+    "setPrefix": "Done! My prefix on your server is now `{0}`. Try running `{1}ping` to test it.",
+    "settingsMenu": "Server Settings | {0}",
+    "settingsTitle": "❤️ Basic Information:",
+    "settingsValue": "",
+    "settingsTitle2": "🔗 Queue Information:",
+    "settingsPermTitle": "✨ Permissions:",
+    "settingsPermValue": "",
+    "pingTitle1": "Bot Information:",
+    "pingfield1": "```Shard ID: {0}/{1}\nShard Latency: {2:.3f}s {3}\nRegion: {4}```",
+    "pingNadawanie": "name",
+}
