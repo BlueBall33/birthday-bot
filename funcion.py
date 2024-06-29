@@ -112,7 +112,7 @@ def update_json(path: str, new_data: dict) -> None:
         json.dump(data, json_file, indent=4)
 
 def get_lang(guild_id:int, key:str) -> str:
-    lang = get_settings(guild_id).get("lang", "PL")
+    lang = get_settings(guild_id).get("langs", "PL")
     if lang in LANGS and not LANGS[lang]:
         LANGS[lang] = open_json(os.path.join("langs", f"{lang}.json"))
 

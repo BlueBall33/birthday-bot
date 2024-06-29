@@ -9,7 +9,7 @@ class Task(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
         self.activity_update.start()
-        self.cache_cleaner.start()
+
 
         self.act_type = {
             "play": discord.ActivityType.playing,
@@ -22,7 +22,7 @@ class Task(commands.Cog):
 
     def cog_unload(self):
         self.activity_update.cancel()
-        self.cache_cleaner.cancel()
+
 
     @tasks.loop(minutes=10.0)
     async def activity_update(self):
