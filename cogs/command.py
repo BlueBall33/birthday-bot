@@ -101,5 +101,12 @@ class Birthday(commands.Cog, name="birthday"):
             await ctx.send(get_lang(ctx.guild.id, "birthdaysEnableFalse").format(ctx.guild.name))
 
 
+    @commands.hybrid_command(name="ping", aliases=get_aliases("ping"))
+    @commands.dynamic_cooldown(cooldown_check, commands.BucketType.guild)
+    async def ping(self, ctx: commands.Context):
+        "Test if the bot is alive, and see the delay between your commands and my response."
+        print(func.get_birthday(month=1,day=10))
+
+
 async def setup(bot: commands.Bot) -> None:
     await bot.add_cog(Birthday(bot))
