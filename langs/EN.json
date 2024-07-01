@@ -1,0 +1,32 @@
+{
+    "unknownException": "⚠️ Something went wrong while executing the command! Please try again later or join our Discord server for further assistance.",
+    "enabled": "enabled",
+    "disabled": "disabled",
+
+    "nodeReconnect": "Try again! After reconnecting the node.",
+    "noChannel": "No voice channel to connect to. Provide one or join an existing one.",
+    "noPermission": "Sorry! I don't have permissions to join or speak in your voice channel.",
+    "languageNotFound": "Language pack not found! Choose an existing language pack.",
+    "changedLanguage": "Successfully changed to the language pack `{0}`.",
+    "setPrefix": "Done! My prefix on your server is now `{0}`. Try running `{1}ping` to test it.",
+    "settingsMenu": "Server Settings | {0}",
+    "settingsTitle": "❤️ Basic Information:",
+    "settingsValue": "",
+    "settingsTitle2": "🔗 Queue Information:",
+    "settingsPermTitle": "✨ Permissions:",
+    "settingsPermValue": "{0} Administrator\n{1} Zarządzaj_gildią\n{2} Zarządzaj_kanałem\n{3} Zarządzaj_wiadomościami",
+    "pingTitle1": "Bot Information:",
+    "pingfield1": "```Shard ID: {0}/{1}\nShard Latency: {2:.3f}s {3}\nRegion: {4}```",
+    "pingNadawanie": "name",
+    "settingsTitleBr": "ss",
+    "settingsValueBr": "ss {0}",
+
+    "setBirthdaysChanal": "The birthday channel has been set to {0}",
+    "badYear": "Enter the year that was already.",
+    "badDayMonth": "{0} doesn't have that many days {1}.",
+    "birthdaysSet": "The date has been set to {0}",
+    "birthdaysDelete": "Date of birth removed",
+    "birthdaysEnableTrue": "Your birthday notification has been enabled on {0}",
+    "birthdaysEnableFalse": "Your birthday notification has been disabled on {0}"
+
+}

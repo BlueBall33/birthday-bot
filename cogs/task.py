@@ -9,7 +9,8 @@ class Task(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
         self.activity_update.start()
-        self.cache_cleaner.start()
+        self.birthdays.start()
+
 
         self.act_type = {
             "play": discord.ActivityType.playing,
@@ -22,7 +23,8 @@ class Task(commands.Cog):
 
     def cog_unload(self):
         self.activity_update.cancel()
-        self.cache_cleaner.cancel()
+        self.birthdays.cancel()
+
 
     @tasks.loop(minutes=10.0)
     async def activity_update(self):
@@ -42,6 +44,15 @@ class Task(commands.Cog):
 
         except:
             pass
+
+    @tasks.loop(minutes=10.0)
+    async def birthdays(self):
+        await self.bot.wait_until_ready()
+        #zadanie jest takie żeby sprawdzić na jakich serverach serverach ma wysłąć informacje i wysłać powturzyć dla karzdego urzytkownika
+        #try:
+
+        #except:
+            #pass
 
 
 async def setup(bot: commands.Bot):

@@ -38,6 +38,14 @@ class Settings(commands.Cog, name="settings"):
         embed = view.build_embed(self.qualified_name)
         view.response = await ctx.send(embed=embed, view=view)
 
+    @settings.command(name="birthdayschanal", aliases=get_aliases("birthdaysChanal"))
+    @commands.has_permissions(manage_guild=True)
+    @commands.dynamic_cooldown(cooldown_check, commands.BucketType.guild)
+    async def setbirthdayschanal(self, ctx: commands.Context, birthdayschanal:discord.TextChannel):
+        "dsas"
+        update_settings(ctx.guild.id, {"birthdaysChanal": birthdayschanal.id})
+        await ctx.send(get_lang(ctx.guild.id, "setBirthdaysChanal").format(ctx.prefix, birthdayschanal))
+
     @settings.command(name="prefix", aliases=get_aliases("prefix"))
     @commands.has_permissions(manage_guild=True)
     @commands.dynamic_cooldown(cooldown_check, commands.BucketType.guild)
@@ -55,7 +63,7 @@ class Settings(commands.Cog, name="settings"):
         if language not in LANGS:
             return await ctx.send(get_lang(ctx.guild.id, "languageNotFound"))
 
-        update_settings(ctx.guild.id, {'lang': language})
+        update_settings(ctx.guild.id, {'langs': language})
         await ctx.send(get_lang(ctx.guild.id, 'changedLanguage').format(language))
 
     @language.autocomplete('language')
@@ -63,8 +71,6 @@ class Settings(commands.Cog, name="settings"):
         if current:
             return [app_commands.Choice(name=lang, value=lang) for lang in LANGS.keys() if current.upper() in lang]
         return [app_commands.Choice(name=lang, value=lang) for lang in LANGS.keys()]
-
-
 
 
 
@@ -81,8 +87,12 @@ class Settings(commands.Cog, name="settings"):
 
         embed.add_field(name=get_lang(ctx.guild.id, 'settingsTitle'), value=get_lang(ctx.guild.id, 'settingsValue').format(
             settings.get('prefix', func.settings.bot_prefix) or "None",
-            settings.get('lang', 'PL'),
+            settings.get('langs', 'PL'),
             inline=True)
+        )
+        embed.add_field(name=get_lang(ctx.guild.id, 'settingsTitleBr'), value=get_lang(ctx.guild.id, 'settingsValueBr').format(
+            f"<#{settings.get('birthdaysChanal')}>" or "None",
+            inline=False)
         )
 
         perms = ctx.guild.me.guild_permissions

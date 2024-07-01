@@ -6,7 +6,6 @@ from discord.ext import commands
 from datetime import datetime
 from pymongo import MongoClient
 from typing import Optional,Any
-from io import BytesIO
 from addons import Settings, TOKENS
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -42,11 +41,24 @@ LOCAL_LANGS: dict[str, dict[str, str]] = {} #Stores all the localization languag
 
 def get_user(user_id: int) -> dict:
     user = USER.get(user_id, None)
+    print(user)
     if not user:
         user = USER_DB.find_one({"_id": user_id})
         if not user:
             USER_DB.insert_one({"_id": user_id})
         USER[user_id] = user or {}
+    return user
+
+##nie wiem co dalej zadanie ma dać wszystkich id urzytkownikuw urodzonych w danymm dniu i miesiącu
+def get_birthday(month: int,day:int) -> dict:
+    user = USER.get(month, None)
+    print(USER)
+    print(user)
+    if not user:
+        user = USER_DB.find_one({"dateBirthday":{"month":month} })
+        print(user)
+        if not user:
+            return None
     return user
 
 def update_user(user_id: int, data: dict, mode="set") -> bool:
@@ -112,7 +124,7 @@ def update_json(path: str, new_data: dict) -> None:
         json.dump(data, json_file, indent=4)
 
 def get_lang(guild_id:int, key:str) -> str:
-    lang = get_settings(guild_id).get("lang", "PL")
+    lang = get_settings(guild_id).get("langs", "PL")
     if lang in LANGS and not LANGS[lang]:
         LANGS[lang] = open_json(os.path.join("langs", f"{lang}.json"))
 
