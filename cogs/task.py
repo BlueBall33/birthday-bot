@@ -1,5 +1,6 @@
 import discord
 import funcion as func
+from datetime import datetime
 
 from discord.ext import commands, tasks
 from addons import Placeholders
@@ -48,11 +49,16 @@ class Task(commands.Cog):
     @tasks.loop(minutes=10.0)
     async def birthdays(self):
         await self.bot.wait_until_ready()
-        #zadanie jest takie żeby sprawdzić na jakich serverach serverach ma wysłąć informacje i wysłać powturzyć dla karzdego urzytkownika
-        #try:
+        user = func.get_birthday(datetime.now().month,datetime.now().day)
+        for use in user:
+            for guild_id in use.get("serverBirthday"):
+                try:
+                    chanalID = func.get_settings(guild_id).get("birthdaysChanal")
+                    chanal = self.bot.get_channel(chanalID)
+                    await  chanal.send(func.get_lang(guild_id, "birthdaysWishes").format(use.get("_id")))
+                except:
+                    pass
 
-        #except:
-            #pass
 
 
 async def setup(bot: commands.Bot):

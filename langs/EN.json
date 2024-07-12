@@ -16,8 +16,8 @@
     "settingsPermTitle": "✨ Permissions:",
     "settingsPermValue": "{0} Administrator\n{1} Zarządzaj_gildią\n{2} Zarządzaj_kanałem\n{3} Zarządzaj_wiadomościami",
     "pingTitle1": "Bot Information:",
-    "pingfield1": "```Shard ID: {0}/{1}\nShard Latency: {2:.3f}s {3}\nRegion: {4}```",
-    "pingNadawanie": "name",
+    "pingfield1": "```Shard ID: {0}/{1}\nShard Latency: {2:.3f}s {3}```",
+
     "settingsTitleBr": "ss",
     "settingsValueBr": "ss {0}",
 
@@ -27,6 +27,20 @@
     "birthdaysSet": "The date has been set to {0}",
     "birthdaysDelete": "Date of birth removed",
     "birthdaysEnableTrue": "Your birthday notification has been enabled on {0}",
-    "birthdaysEnableFalse": "Your birthday notification has been disabled on {0}"
+    "birthdaysEnableFalse": "Your birthday notification has been disabled on {0}",
+    "birthdaysWishes": "Today is <@{0}> birthday",
+
+    "selectCategory": "Select a category!",
+    "selectTitleNews": "News",
+    "selectDescriptionNews": "See the latest updates from {0}.",
+    "command": "{0} Commands",
+    "commandDescription": "This is the {0} category.",
+    "embedCategoryAndComands": "{0} commands: {1}",
+    "embedCategoryTitle": "Category {0}",
+    "embedCategoryName": "Category {0}",
+    "embedTitleNews": "{0} Help Menu",
+    "availableCategories": "Available categories {0}",
+    "information": "📰 Information:",
+    "informationDescription": "{0}"
 
 }

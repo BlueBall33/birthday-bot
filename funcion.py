@@ -10,6 +10,7 @@ from addons import Settings, TOKENS
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
+
 if not os.path.exists(os.path.join(ROOT_DIR, "settings.json")):
     raise Exception("Settings file not set!")
 
@@ -49,16 +50,9 @@ def get_user(user_id: int) -> dict:
         USER[user_id] = user or {}
     return user
 
-##nie wiem co dalej zadanie ma dać wszystkich id urzytkownikuw urodzonych w danymm dniu i miesiącu
-def get_birthday(month: int,day:int) -> dict:
-    user = USER.get(month, None)
-    print(USER)
-    print(user)
-    if not user:
-        user = USER_DB.find_one({"dateBirthday":{"month":month} })
-        print(user)
-        if not user:
-            return None
+def get_birthday(month: int,day:int) -> object:
+    user = USER_DB.find({"dateBirthday.month":month,"dateBirthday.day":day} )
+
     return user
 
 def update_user(user_id: int, data: dict, mode="set") -> bool:

@@ -3,9 +3,11 @@ from dotenv import load_dotenv
 
 class Settings:
     def __init__(self, settings: dict) -> None:
-        self.invite_link = "https://dsc.gg/botpomoc"
+        self.invite_link = settings.get("invite_link","")
+        self.invite_bot_link = settings.get("invite_bot_link","")
         self.nodes = settings.get("nodes", {})
         self.bot_prefix = settings.get("prefix", "")
+        self.bot_name = settings.get("bot_name","")
         self.activity = settings.get("activity", [{"listen": "/help"}])
         self.embed_color = int(settings.get("embed_color", "0xb3b3b3"), 16)
         self.bot_access_user = settings.get("bot_access_user", [])

@@ -7,3 +7,4 @@ class ButtonOnCooldown(commands.CommandError):
 
 
 from .help import HelpView
+from .link import LinkView
