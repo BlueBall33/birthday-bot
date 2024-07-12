@@ -14,7 +14,7 @@ class HelpDropdown(discord.ui.Select):
             placeholder=get_lang(ctx.guild.id, 'selectCategory'),
             min_values=1, max_values=1,
             options=[
-                        discord.SelectOption(emoji="🆕", label=get_lang(ctx.guild.id, 'selectTitleNews'), description=get_lang(ctx.guild.id, 'descriptionNews')),
+                        discord.SelectOption(emoji="🆕", label=get_lang(ctx.guild.id, 'selectTitleNews'), description=get_lang(ctx.guild.id, 'descriptionNews').format(func.settings.bot_name)),
                     ] + [
                         discord.SelectOption(emoji=emoji, label=get_lang(ctx.guild.id, 'command').format(category),
                                              description=get_lang(ctx.guild.id, 'commandDescription').format(category.lower()))
@@ -40,9 +40,9 @@ class HelpView(discord.ui.View):
                                      len([c for c in cog.walk_commands()])]
 
         self.add_item(
-             discord.ui.Button(label='Support', emoji=':support:915152950471581696', url=func.settings.invite_link))
+             discord.ui.Button(label='Support-Githab', emoji=':support:915152950471581696', url=func.settings.invite_link))
         self.add_item(discord.ui.Button(label='Invite', emoji=':invite:915152589056790589',
-                                         url='https://discord.com/oauth2/authorize?client_id={}&permissions=2184260928&scope=bot%20applications.commands'.format(
+                                         url=func.settings.invite_bot_link.format(
                                                func.tokens.client_id)))
         self.add_item(HelpDropdown(self.ctx, self.categorys))
 
@@ -74,10 +74,7 @@ class HelpView(discord.ui.View):
                 inline=True
             )
 
-            embed.add_field(name=get_lang(self.ctx.guild.id,'information'), value=get_lang(self.ctx.guild.id,'informationDescription'), inline=True)
-            # embed.add_field(name="Get Started",
-            #                 value="```Join a voice channel and /play {Song/URL} a song. (Names, Youtube Video Links or Playlist links or Spotify links are supported on Vocard)```",
-            #                 inline=False)
+            embed.add_field(name=get_lang(self.ctx.guild.id,'information'), value=get_lang(self.ctx.guild.id,'informationDescription').format(func.settings.bot_name), inline=True)
 
             return embed
 
