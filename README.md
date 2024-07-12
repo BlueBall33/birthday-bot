@@ -7,4 +7,4 @@ CLIENT_SECRET_ID =
 MONGODB_URL = 
 MONGODB_NAME =
 ```
-# If you want to change messages, you can customize everything in the file `langs/EN.json` or add more languages by adding a file with the `name.json` in the folder.
+#### If you want to change messages, you can customize everything in the file `langs/EN.json` or add more languages by adding a file with the `name.json` in the folder.
